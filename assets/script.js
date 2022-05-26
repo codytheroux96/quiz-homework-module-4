@@ -15,6 +15,7 @@ var questionsEl = document.getElementById("questions");
 var position = 0;
 var answersEl = document.getElementById("answers");
 var userScore= document.getElementById("score");
+var submitBtn = document.querySelector("#end button");
 
 
 var quizQuestions = [{
