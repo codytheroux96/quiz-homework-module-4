@@ -1,4 +1,4 @@
-var state = 'start';
+var state = 'quiz';
 
 var startEl = document.querySelector("#start");
 var quizEl = document.querySelector("#quiz");
