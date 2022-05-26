@@ -9,9 +9,10 @@ var buttonA = document.getElementById("a");
 var buttonB = document.getElementById("b");
 var buttonC = document.getElementById("c");
 var buttonD = document.getElementById("d");
-var timer= document.getElementById("timer");
+var timer = document.getElementById("timer");
 var questionsEl = document.getElementById("questions");
-var position= 0;
+var position = 0;
+var answersEl = document.getElementById("answers");
 
 
 var quizQuestions = [{
@@ -20,7 +21,7 @@ var quizQuestions = [{
     choiceB: "21",
     choiceC: "18",
     choiceD: "13",
-    correctAnswer: "b"
+    correctAnswer: "21"
 },
 
 {
@@ -29,7 +30,7 @@ var quizQuestions = [{
     choiceB: "7",
     choiceC: "6",
     choiceD: "2",
-    correctAnswer: "c"
+    correctAnswer: "6"
 },
 {
     question: "A grand slam scores how many runs in baseball?",
@@ -37,7 +38,7 @@ var quizQuestions = [{
     choiceB: "2",
     choiceC: "3",
     choiceD: "4",
-    correctAnswer: "d"
+    correctAnswer: "4"
 },
 {
     question: "What state does not have multiple baseball teams?",
@@ -45,22 +46,62 @@ var quizQuestions = [{
     choiceB: "California",
     choiceC: "Florida",
     choiceD: "Colorado",
-    correctAnswer: "d"
+    correctAnswer: "Colorado"
 },
 {
-    question: "What is the most populated country?",
+    question: "Which is the most populated country?",
     choiceA: "China",
     choiceB: "United States",
     choiceC: "Canada",
     choiceD: "Brazil",
-    correctAnswer: "a"
+    correctAnswer: "China"
 },
 ];
- 
-function displayQuestions({
-   
-})
 
+function displayQuestions() {
+    questionsEl.innerHTML = "";
+    answersEl.innerHTML = "";
+    
+    var buttonA = document.createElement("button");
+    var buttonB = document.createElement("button");
+    var buttonC = document.createElement("button");
+    var buttonD = document.createElement("button");
+    var questionsDisplay = document.createElement("p");
+   
+    questionsDisplay.textContent = quizQuestions[position].question;
+    buttonA.textContent = quizQuestions[position].choiceA;
+    buttonB.textContent = quizQuestions[position].choiceB;
+    buttonC.textContent = quizQuestions[position].choiceC;
+    buttonD.textContent = quizQuestions[position].choiceD;
+   
+    questionsEl.appendChild(questionsDisplay);
+    answersEl.appendChild(buttonA);
+    answersEl.appendChild(buttonB);
+    answersEl.appendChild(buttonC);
+    answersEl.appendChild(buttonD);
+
+ 
+
+}
+answersEl.addEventListener("click", function (event) {
+    
+    if (event.target.type==="submit"){
+
+        if(event.target.textContent === quizQuestions[position].correctAnswer){
+        
+        }else {
+
+        }
+        position++;
+        if (position < quizQuestions.length) {
+            displayQuestions();
+        }
+        else{
+            state="end";
+            displayState();
+        }
+    }
+});
 
 
 function displayState() {
@@ -73,7 +114,9 @@ function displayState() {
         startEl.style.display = 'none';
         quizEl.style.display = 'block';
         endEl.style.display = 'none';
-        function displayQuestions()
+        displayQuestions();
+
+
     }
     if (state === 'end') {
         startEl.style.display = 'none';
