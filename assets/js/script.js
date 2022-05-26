@@ -1,5 +1,6 @@
+//variable declares what state the code is working in
 var state = 'start';
-
+//global variables for my code
 var startEl = document.querySelector("#start");
 var quizEl = document.querySelector("#quiz");
 var endEl = document.querySelector("#end");
@@ -18,6 +19,8 @@ var userScore = document.getElementById("score");
 var submitBtn = document.querySelector("#end button");
 
 
+
+//this is the array my quiz questions are stored in
 var quizQuestions = [{
     question: "What number are you trying to reach in blackjack?",
     choiceA: "16",
@@ -60,6 +63,7 @@ var quizQuestions = [{
     correctAnswer: "China"
 },
 ];
+//these are the functions for my timer
 function displayMessage() {
     timer.textContent = "Time left: " + secondsLeft;
 }
@@ -76,13 +80,14 @@ function setTime() {
         }
     }, 1000);
 }
-
+//this function displays the user's score at the end of the quiz
 function displayScore() {
     if (state === "end") {
         userScore.textContent = ("Your score is: " + secondsLeft);
     }
 }
 
+//this is the function that displays the quiz questions and cycles through them
 function displayQuestions() {
     questionsEl.innerHTML = "";
     answersEl.innerHTML = "";
@@ -110,7 +115,7 @@ function displayQuestions() {
 
 }
 answersEl.addEventListener("click", function (event) {
-
+//these are the actions that happen when you click on the buttons and they are either right or wrong
     if (event.target.type === "submit") {
 
         if (event.target.textContent === quizQuestions[position].correctAnswer) {
@@ -132,7 +137,7 @@ answersEl.addEventListener("click", function (event) {
     }
 });
 
-
+//these are the settings for the page depending on what state the code is in
 function displayState() {
     if (state === 'start') {
         startEl.style.display = 'block';
@@ -153,6 +158,7 @@ function displayState() {
         quizEl.style.display = 'none';
         endEl.style.display = 'block';
         displayScore();
+        displayUserInput();
     }
 
 }
@@ -162,12 +168,18 @@ function displayState() {
 function init() {
     displayState();
 }
-
+//this is the function for if you click the submit button
+submitBtn.addEventListener("click", function () {
+    alert("Your score has been saved!")
+    var input = document.getElementById("userinput").value;
+  
+})
+//this is the event listener for if you click the start button and then it transitions to the quiz state
 startBtn.addEventListener("click", function () {
     state = 'quiz';
     displayState();
 });
-
+//this is the event listener that transitions everything to the end state
 quizTitle.addEventListener("click", function () {
     state = 'end';
     displayState();
