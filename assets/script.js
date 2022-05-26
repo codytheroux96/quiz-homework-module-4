@@ -5,6 +5,10 @@ var quizEl = document.querySelector("#quiz");
 var endEl = document.querySelector("#end");
 var startBtn = document.querySelector("#start button");
 var quizTitle = document.querySelector("#quiz #title");
+var buttonA = document.getElementById("a");
+var buttonB = document.getElementById("b");
+var buttonC = document.getElementById("c");
+var buttonD = document.getElementById("d");
 
 
 var quizQuestions = [{
