@@ -72,7 +72,7 @@ function setTime(){
             state= "end";
             displayState();
         }
-    })
+    }, 1000);
 }
 
 function displayQuestions() {
