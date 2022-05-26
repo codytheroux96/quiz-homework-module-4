@@ -11,6 +11,7 @@ var buttonC = document.getElementById("c");
 var buttonD = document.getElementById("d");
 var timer= document.getElementById("timer");
 var questionsEl = document.getElementById("questions");
+var position= 0;
 
 
 var quizQuestions = [{
@@ -56,6 +57,9 @@ var quizQuestions = [{
 },
 ];
  
+function displayQuestions({
+   
+})
 
 
 
@@ -69,6 +73,7 @@ function displayState() {
         startEl.style.display = 'none';
         quizEl.style.display = 'block';
         endEl.style.display = 'none';
+        function displayQuestions()
     }
     if (state === 'end') {
         startEl.style.display = 'none';
@@ -76,6 +81,8 @@ function displayState() {
         endEl.style.display = 'block';
     }
 }
+
+
 
 function init() {
     displayState();
