@@ -62,6 +62,7 @@ function displayQuestions() {
     questionsEl.innerHTML = "";
     answersEl.innerHTML = "";
     
+    
     var buttonA = document.createElement("button");
     var buttonB = document.createElement("button");
     var buttonC = document.createElement("button");
@@ -88,8 +89,10 @@ answersEl.addEventListener("click", function (event) {
     if (event.target.type==="submit"){
 
         if(event.target.textContent === quizQuestions[position].correctAnswer){
+            alert("Correct!")
         
         }else {
+            alert("Wrong! You lost 10 seconds")
 
         }
         position++;
