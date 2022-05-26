@@ -14,6 +14,7 @@ var secondsLeft = 75;
 var questionsEl = document.getElementById("questions");
 var position = 0;
 var answersEl = document.getElementById("answers");
+var userScore= document.getElementById("score");
 
 
 var quizQuestions = [{
@@ -73,6 +74,12 @@ function setTime(){
             displayState();
         }
     }, 1000);
+}
+
+function displayScore(){
+    if (state === "end"){
+        userScore.textContent = ("Your score is: " + secondsLeft);
+    }
 }
 
 function displayQuestions() {
@@ -144,6 +151,7 @@ function displayState() {
         startEl.style.display = 'none';
         quizEl.style.display = 'none';
         endEl.style.display = 'block';
+        displayScore();
     }
 }
 
