@@ -1,4 +1,4 @@
-var state = 'quiz';
+var state = 'start';
 
 var startEl = document.querySelector("#start");
 var quizEl = document.querySelector("#quiz");
@@ -9,7 +9,8 @@ var buttonA = document.getElementById("a");
 var buttonB = document.getElementById("b");
 var buttonC = document.getElementById("c");
 var buttonD = document.getElementById("d");
-var timer= getElementById("timer");
+var timer= document.getElementById("timer");
+var questionsEl = document.getElementById("questions");
 
 
 var quizQuestions = [{
