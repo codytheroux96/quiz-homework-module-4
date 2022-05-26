@@ -10,6 +10,7 @@ var buttonB = document.getElementById("b");
 var buttonC = document.getElementById("c");
 var buttonD = document.getElementById("d");
 var timer = document.getElementById("timer");
+var secondsLeft = 75;
 var questionsEl = document.getElementById("questions");
 var position = 0;
 var answersEl = document.getElementById("answers");
@@ -57,6 +58,22 @@ var quizQuestions = [{
     correctAnswer: "China"
 },
 ];
+function displayMessage(){
+    timer.textContent = "Time left: " + secondsLeft;
+}
+function setTime(){
+    displayMessage();
+    var timerInterval = setInterval(function(){
+        secondsLeft--;
+        displayMessage();
+
+        if (secondsLeft === 0){
+            alert("Times Up!")
+            state= "end";
+            displayState();
+        }
+    })
+}
 
 function displayQuestions() {
     questionsEl.innerHTML = "";
@@ -118,6 +135,7 @@ function displayState() {
         quizEl.style.display = 'block';
         endEl.style.display = 'none';
         displayQuestions();
+        setTime();
 
 
     }
