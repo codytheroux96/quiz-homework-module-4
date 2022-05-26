@@ -68,7 +68,7 @@ function setTime(){
         displayMessage();
 
         if (secondsLeft === 0){
-            alert("Times Up!")
+            alert("Times Up!");
             state= "end";
             displayState();
         }
@@ -110,6 +110,7 @@ answersEl.addEventListener("click", function (event) {
         
         }else {
             alert("Wrong! You lost 10 seconds")
+            secondsLeft = secondsLeft -9;
 
         }
         position++;
