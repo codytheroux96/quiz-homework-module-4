@@ -119,10 +119,8 @@ answersEl.addEventListener("click", function (event) {
     if (event.target.type === "submit") {
 
         if (event.target.textContent === quizQuestions[position].correctAnswer) {
-            alert("Correct!")
 
-        } else {
-            alert("Wrong! You lost 10 seconds")
+        } else{
             secondsLeft = secondsLeft - 9;
 
         }
@@ -130,7 +128,7 @@ answersEl.addEventListener("click", function (event) {
         if (position < quizQuestions.length) {
             displayQuestions();
         }
-        else {
+        else{
             state = "end";
             displayState();
         }
@@ -172,6 +170,7 @@ function init() {
 submitBtn.addEventListener("click", function () {
     alert("Your score has been saved!")
     var input = document.getElementById("userinput").value;
+    
   
 })
 //this is the event listener for if you click the start button and then it transitions to the quiz state
