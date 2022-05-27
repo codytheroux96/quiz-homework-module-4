@@ -116,7 +116,7 @@ function displayQuestions() {
 }
 answersEl.addEventListener("click", function (event) {
 //these are the actions that happen when you click on the buttons and they are either right or wrong
-    if (event.target.type === "submit") {
+    if (event.target.matches("button")) {
 
         if (event.target.textContent !== quizQuestions[position].correctAnswer) {
             secondsLeft = secondsLeft - 9;
